@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>false</ImplicitUsings>
+
+    <DuckovManagedDir>C:\Program Files (x86)\Steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed</DuckovManagedDir>
+    <DuckovModsDir>C:\Program Files (x86)\Steam\steamapps\common\Escape from Duckov\Duckov_Data\Mods</DuckovModsDir>
+
+    <AssemblyName>MyMod</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>$(DuckovManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(DuckovManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TeamSoda.Duckov.Core">
+      <HintPath>$(DuckovManagedDir)\TeamSoda.Duckov.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="DeployToDuckovMods" AfterTargets="Build">
+    <PropertyGroup>
+      <DeployDir>$(DuckovModsDir)\MyMod</DeployDir>
+    </PropertyGroup>
+
+    <MakeDir Directories="$(DeployDir)" />
+
+    <Copy SourceFiles="$(TargetDir)MyMod.dll" DestinationFolder="$(DeployDir)" />
+    <Copy SourceFiles="..\..\mod_package\info.ini" DestinationFolder="$(DeployDir)" Condition="Exists('..\..\mod_package\info.ini')" />
+    <Copy SourceFiles="..\..\mod_package\preview.png" DestinationFolder="$(DeployDir)" Condition="Exists('..\..\mod_package\preview.png')" />
+  </Target>
+
+</Project>
