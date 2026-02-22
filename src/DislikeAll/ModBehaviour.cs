@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-namespace MyMod
+namespace DislikeAll
 {
     public class ModBehaviour : Duckov.Modding.ModBehaviour
     {
@@ -18,7 +18,7 @@ namespace MyMod
 
         private void Start()
         {
-            Debug.Log("[MyMod] Loaded. Press K to clear manually wishlisted items.");
+            Debug.Log("[DislikeAll] Loaded. Press K to clear manually wishlisted items.");
         }
 
         private void Update()
@@ -33,25 +33,25 @@ namespace MyMod
         {
             if (ItemWishlist.Instance == null)
             {
-                Debug.Log("[MyMod] ItemWishlist is not ready yet.");
+                Debug.Log("[DislikeAll] ItemWishlist is not ready yet.");
                 return;
             }
 
             if (ManualWishlistField == null)
             {
-                Debug.LogWarning("[MyMod] manualWishList field was not found. Game version may have changed.");
+                Debug.LogWarning("[DislikeAll] manualWishList field was not found. Game version may have changed.");
                 return;
             }
 
             if (ManualWishlistField.GetValue(ItemWishlist.Instance) is not List<int> manualWishList)
             {
-                Debug.LogWarning("[MyMod] manualWishList field is unavailable or has unexpected type.");
+                Debug.LogWarning("[DislikeAll] manualWishList field is unavailable or has unexpected type.");
                 return;
             }
 
             if (manualWishList.Count == 0)
             {
-                Debug.Log("[MyMod] No manually wishlisted items to clear.");
+                Debug.Log("[DislikeAll] No manually wishlisted items to clear.");
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace MyMod
             }
 
             NotifyRefreshWishlistInfoMethod?.Invoke(null, null);
-            Debug.Log($"[MyMod] DislikeAll done. Removed {removedCount} manual wishlist item(s).");
+            Debug.Log($"[DislikeAll] DislikeAll done. Removed {removedCount} manual wishlist item(s).");
         }
     }
 }

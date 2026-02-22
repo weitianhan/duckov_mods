@@ -6,17 +6,17 @@
 - `dotnet build` should auto-deploy to the game's Mods folder.
 
 ## 2. Hard Rules
-- `info.ini` must contain: `name=MyMod`
-- Output DLL name must be: `MyMod.dll`
-- Entry type must be: `MyMod.ModBehaviour`
+- `info.ini` must contain: `name=DislikeAll`
+- Output DLL name must be: `DislikeAll.dll`
+- Entry type must be: `DislikeAll.ModBehaviour`
 - Target framework must be: `netstandard2.1`
 - Use official client mod loading only (no BepInEx/Harmony unless explicitly requested).
 
 ## 3. Current Repo Layout
 ```
 repo-root/
-  src/MyMod/
-    MyMod.csproj
+  src/DislikeAll/
+    DislikeAll.csproj
     ModBehaviour.cs
   mod_package/
     info.ini
@@ -34,7 +34,7 @@ repo-root/
   - `C:\Users\weitianhan\AppData\LocalLow\TeamSoda\Duckov\Player.log`
 
 ## 5. Dependency Rules (for current game build)
-- Keep explicit `<Reference + HintPath>` entries in `MyMod.csproj`.
+- Keep explicit `<Reference + HintPath>` entries in `DislikeAll.csproj`.
 - Required references:
   - `UnityEngine.dll`
   - `UnityEngine.CoreModule.dll`
@@ -45,7 +45,7 @@ repo-root/
 ## 6. Build and Log Commands
 - Build + deploy:
 ```powershell
-dotnet build .\src\MyMod\MyMod.csproj -c Debug
+dotnet build .\src\DislikeAll\DislikeAll.csproj -c Debug
 ```
 - Tail logs:
 ```powershell
@@ -55,7 +55,7 @@ Get-Content "C:\Users\weitianhan\AppData\LocalLow\TeamSoda\Duckov\Player.log" -W
 ## 7. Minimal Development Workflow
 For every change:
 1. Ensure `dotnet build` passes.
-2. Ensure DLL is updated in `Mods\MyMod`.
+2. Ensure DLL is updated in `Mods\DislikeAll`.
 3. Verify behavior in `Player.log`.
 
 General coding notes:

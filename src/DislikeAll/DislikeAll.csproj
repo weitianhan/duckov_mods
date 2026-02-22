@@ -9,7 +9,7 @@
     <DuckovManagedDir>C:\Program Files (x86)\Steam\steamapps\common\Escape from Duckov\Duckov_Data\Managed</DuckovManagedDir>
     <DuckovModsDir>C:\Program Files (x86)\Steam\steamapps\common\Escape from Duckov\Duckov_Data\Mods</DuckovModsDir>
 
-    <AssemblyName>MyMod</AssemblyName>
+    <AssemblyName>DislikeAll</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,12 +33,12 @@
 
   <Target Name="DeployToDuckovMods" AfterTargets="Build">
     <PropertyGroup>
-      <DeployDir>$(DuckovModsDir)\MyMod</DeployDir>
+      <DeployDir>$(DuckovModsDir)\DislikeAll</DeployDir>
     </PropertyGroup>
 
     <MakeDir Directories="$(DeployDir)" />
 
-    <Copy SourceFiles="$(TargetDir)MyMod.dll" DestinationFolder="$(DeployDir)" />
+    <Copy SourceFiles="$(TargetDir)DislikeAll.dll" DestinationFolder="$(DeployDir)" />
     <Copy SourceFiles="..\..\mod_package\info.ini" DestinationFolder="$(DeployDir)" Condition="Exists('..\..\mod_package\info.ini')" />
     <Copy SourceFiles="..\..\mod_package\preview.png" DestinationFolder="$(DeployDir)" Condition="Exists('..\..\mod_package\preview.png')" />
   </Target>

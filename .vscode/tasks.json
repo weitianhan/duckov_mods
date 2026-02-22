@@ -2,12 +2,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build: MyMod (deploy to Duckov Mods)",
+      "label": "build: DislikeAll (deploy to Duckov Mods)",
       "type": "shell",
       "command": "dotnet",
       "args": [
         "build",
-        "${workspaceFolder}/src/MyMod/MyMod.csproj",
+        "${workspaceFolder}/src/DislikeAll/DislikeAll.csproj",
         "-c",
         "Debug"
       ],
