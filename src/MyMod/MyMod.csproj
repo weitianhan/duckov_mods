@@ -21,6 +21,10 @@
       <HintPath>$(DuckovManagedDir)\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(DuckovManagedDir)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="TeamSoda.Duckov.Core">
       <HintPath>$(DuckovManagedDir)\TeamSoda.Duckov.Core.dll</HintPath>
       <Private>false</Private>
